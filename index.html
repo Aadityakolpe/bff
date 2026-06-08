@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Best Friend's Day ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+overflow-x:hidden;
+background:linear-gradient(135deg,#ffd6ec,#ffe8f5,#fff4fa);
+min-height:100vh;
+}
+
+.floating-hearts{
+position:fixed;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:0;
+}
+
+.heart{
+position:absolute;
+font-size:25px;
+animation:float 10s linear infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-100px);
+opacity:0;
+}
+}
+
+.container{
+position:relative;
+z-index:5;
+padding:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+
+.card{
+background:rgba(255,255,255,0.6);
+backdrop-filter:blur(20px);
+padding:30px;
+border-radius:30px;
+max-width:700px;
+width:100%;
+text-align:center;
+box-shadow:0 10px 40px rgba(255,105,180,.2);
+animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.avatar{
+width:180px;
+margin:auto;
+display:block;
+animation:bounce 3s infinite;
+}
+
+@keyframes bounce{
+50%{
+transform:translateY(-10px);
+}
+}
+
+h1{
+color:#ff4fa3;
+font-size:2rem;
+margin-bottom:15px;
+}
+
+p{
+font-size:1.1rem;
+color:#555;
+line-height:1.7;
+}
+
+.buttons{
+margin-top:25px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+button{
+padding:14px 30px;
+border:none;
+border-radius:50px;
+font-size:1rem;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+.yes{
+background:#ff4fa3;
+color:white;
+}
+
+.no{
+background:white;
+color:#ff4fa3;
+}
+
+.yes:hover{
+transform:scale(1.1);
+}
+
+.hidden{
+display:none;
+}
+
+#wishSection{
+display:none;
+padding:50px 20px;
+text-align:center;
+}
+
+.wishCard{
+background:white;
+padding:35px;
+border-radius:30px;
+box-shadow:0 10px 40px rgba(0,0,0,.08);
+max-width:900px;
+margin:auto;
+position:relative;
+}
+
+.avatar-left{
+position:absolute;
+left:-80px;
+bottom:20px;
+width:140px;
+}
+
+.avatar-right{
+position:absolute;
+right:-80px;
+bottom:20px;
+width:140px;
+}
+
+.wishTitle{
+font-size:2.2rem;
+color:#ff4fa3;
+font-weight:700;
+margin-bottom:20px;
+}
+
+.letter{
+margin-top:25px;
+font-size:1.1rem;
+line-height:2;
+color:#555;
+}
+
+@media(max-width:768px){
+
+.avatar-left,
+.avatar-right{
+position:relative;
+left:auto;
+right:auto;
+bottom:auto;
+margin:20px auto;
+display:block;
+}
+
+.wishTitle{
+font-size:1.7rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="floating-hearts" id="hearts"></div>
+
+<div class="container">
+
+<div class="card" id="introCard">
+
+<img src="avatars.png" class="avatar">
+
+<h1>Hey Shruu 💖</h1>
+
+<p id="message">
+I want to tell you something 🌷<br><br>
+Do you want to know it? 😊
+</p>
+
+<div class="buttons">
+
+<button class="yes" onclick="showWish()">
+💖 Yes
+</button>
+
+<button class="no" id="noBtn">
+🙈 No
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<section id="wishSection">
+
+<div class="wishCard">
+
+<img src="avatars.png" class="avatar-left">
+<img src="avatars.png" class="avatar-right">
+
+<div class="wishTitle">
+
+Happy Best Friend's Day 🩷🌷
+
+<br>
+
+To My One And Only Best Friend
+
+<br>
+
+Shruti 💖
+
+</div>
+
+<div class="letter">
+
+🌸 Thank you for being the most amazing person in my life.<br><br>
+
+😂 For every laugh<br>
+📸 For every memory<br>
+🤪 For every silly moment<br>
+🤗 For every support<br><br>
+
+You are truly special 💖<br><br>
+
+Dear Shruu 🌷<br><br>
+
+Thank you for always being there,
+for understanding me,
+and for making every moment brighter. ✨<br><br>
+
+Happy Best Friend's Day ❤️<br><br>
+
+Your Best Friend,<br>
+Aditya 💖
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+const noBtn=document.getElementById('noBtn');
+const message=document.getElementById('message');
+
+let count=0;
+
+noBtn.addEventListener('mouseover',()=>{
+
+count++;
+
+if(count===1){
+message.innerHTML=
+"🥺 Are you sure?<br><br>It is something special...";
+}
+
+if(count===2){
+message.innerHTML=
+"😔 Pleaseeeee...<br><br>Just one click on Yes 💖";
+}
+
+if(count===3){
+message.innerHTML=
+"😭 Shruuuu...<br><br>You're breaking my heart...";
+}
+
+if(count>=4){
+message.innerHTML=
+"🌷 Okay okay... I promise it's worth it 💖";
+noBtn.style.display="none";
+return;
+}
+
+const x=Math.random()*250-120;
+const y=Math.random()*150-70;
+
+noBtn.style.transform=
+`translate(${x}px,${y}px)`;
+
+});
+
+function showWish(){
+
+document.querySelector('.container').style.display='none';
+
+document.getElementById('wishSection').style.display='block';
+
+createConfetti();
+
+window.scrollTo({
+top:0,
+behavior:'smooth'
+});
+
+}
+
+function createConfetti(){
+
+for(let i=0;i<80;i++){
+
+let heart=document.createElement('div');
+
+heart.innerHTML=
+['💖','🌷','✨','💕','🎉'][Math.floor(Math.random()*5)];
+
+heart.classList.add('heart');
+
+heart.style.left=Math.random()*100+'%';
+
+heart.style.animationDuration=
+(Math.random()*5+5)+'s';
+
+document.getElementById('hearts').appendChild(heart);
+
+}
+
+}
+
+for(let i=0;i<25;i++){
+
+let heart=document.createElement('div');
+
+heart.classList.add('heart');
+
+heart.innerHTML='💖';
+
+heart.style.left=Math.random()*100+'%';
+
+heart.style.animationDuration=
+(Math.random()*8+5)+'s';
+
+document.getElementById('hearts').appendChild(heart);
+
+}
+
+</script>
+
+</body>
+</html>
